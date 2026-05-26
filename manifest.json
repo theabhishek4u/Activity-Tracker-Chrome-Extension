@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "LifeTracker 30",
+  "version": "1.0.0",
+  "description": "Track everything you do online for the last 30 days — browsing, time, searches, and more.",
+  "permissions": [
+    "tabs",
+    "history",
+    "storage",
+    "alarms",
+    "idle",
+    "downloads",
+    "webNavigation",
+    "scripting",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "options_page": "dashboard.html"
+}
